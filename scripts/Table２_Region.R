@@ -93,9 +93,9 @@ fit_region_vec <- function(outcome_var, levels_chr, ref_level, adjusted = TRUE, 
     filter(y > 0)
   
   fml <- if (adjusted) {
-    y ~ region_nom + income_group + control_cor + age65 + tfr + urban
+    y ~ region_nom + income_group + control_cor + age65 + tfr + urban + factor(year)
   } else {
-    y ~ region_nom
+    y ~ region_nom + factor(year)
   }
   
   fit <- tryCatch(
